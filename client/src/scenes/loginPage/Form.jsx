@@ -71,7 +71,7 @@ const Form = () => {
     formData.append("picturePath", values.picture.name);
     //Sara Data save kardiya.
     const savedUserResponse = await fetch(
-      "http://localhost:3001/auth/register",
+      `${process.env.REACT_APP_BACKEND_URL}/auth/register`,
       {
         method: "POST",
         body: formData,
@@ -88,7 +88,7 @@ const Form = () => {
 
   const login = async (values, onSubmitProps) => {
     //We passed the data to the API with method "POST", headers: 
-    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+    const loggedInResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, {
       method: "POST",
       //here, application/json denotes that the data being sent or recieved via HTTP request or response have format of json.
       headers: { "Content-Type": "application/json" },

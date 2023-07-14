@@ -25,7 +25,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   //For adding or removing friends we need to call backend with method PATCH.       
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3001/users/${_id}/${friendId}`,
+      `${process.env.REACT_APP_BACKEND_URL}/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {
