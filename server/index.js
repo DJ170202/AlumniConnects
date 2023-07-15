@@ -49,7 +49,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* Routes with files */
-app.post("/auth/register", upload.single("picture"), register);/*Here upload is a middleware and single() specifies that only one file will be uploaded with the name picture*/
+app.post("/auth/register", register);/*Here upload is a middleware and single() specifies that only one file will be uploaded with the name picture*/
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 /*ROUTES*/
 app.use("/auth", authRoutes);//this will help us keep our routes(files) organized. Yahan pe '/auth' acts as prefix to all authRoutes such as /login => '/auth/login'
